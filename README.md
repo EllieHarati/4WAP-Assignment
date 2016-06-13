@@ -13,7 +13,6 @@ Usage
 Edit this form for:
 
 -Contact Form
-
 -Incident Report Form
 
 -Registration Form
