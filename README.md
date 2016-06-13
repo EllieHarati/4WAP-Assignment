@@ -10,14 +10,7 @@ A quick and practical [Bootstrap] (<http://getbootstrap.com/>) form.
 
 Usage
 ======
-Edit this form for:
-
--Contact Form
--Incident Report Form
-
--Registration Form
-
-
+Edit this form for Contact Form, Incident Report Form, Registration Form
 
 Demo
 =====
