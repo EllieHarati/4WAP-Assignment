@@ -5,7 +5,7 @@ Ellie bootstrap form template
 
 3steps Bootstrap form with validator and progress bar.
 
-A quick and practical `Bootstrap <http://getbootstrap.com/>`_ form template.
+A quick and practical [Bootstrap[ (<http://getbootstrap.com/>).
 
 
 Usage
