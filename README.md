@@ -19,4 +19,4 @@ Edit this form for:
 Demo
 =====
 
-Checkout this [Demo site] <http://elhamharati.com/form/>) to see this form in action. 
+Checkout this [Demo site] (<http://elhamharati.com/form/>) to see this form in action. 
