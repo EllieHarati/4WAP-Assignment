@@ -3,7 +3,7 @@
 Ellie bootstrap form template
 =====================
 
-3 steps Bootstrap form with validator/ progress bar/ RegEx.
+3 steps Bootstrap form with validator/ progress bar/ RegEx/ Local Storage.
 
 A quick and practical [Bootstrap] (<http://getbootstrap.com/>) form.
 
