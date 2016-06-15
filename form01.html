@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Ellie Bootstrap Form Template - Form01</title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Style css -->
+	<link href="css/style.css" rel="stylesheet">
+	
+	<!-- validate javascript -->
+	<script type="text/javascript" src = "js/validate.js"></script>
+	
+	<!-- local storage javascript -->
+	<script type="text/javascript" src = "js/localstorage_form01.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="getData()">
+	<!-- container -->
+    <div class="container" style=" margin-top: 20px">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="progress">
+							<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+								0% Complete
+							</div>
+						</div>					
+					</div>
+				</div>			
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Form 1</h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal" action="form02.html" novalidate>
+							<h3>Register New User</h3>
+							<div class="form-group has-feedback">
+								<label for="username" class="col-sm-2 control-label">Username</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="username" placeholder="username" pattern="[A-Za-z]{8,12}" title="min 8, max 12 char" onblur="return validateErrors('username','usernamemsg')" autofocus>
+									<!-- autofocus older browsers -->
+									<script>
+										if (!("autofocus" in document.createElement("input"))) {
+										document.getElementById("usernmae").focus();
+										}
+									</script>
+									<!-- End autofocus older browsers -->
+									<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+									<span class="help-block" id="usernamemsg">min 8, max 12 char</span>
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="password" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" placeholder="Password"  title="at least eight symbols containing at least one number, one lower, and one upper letter" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onblur="return validateErrors('password','passwordmsg')" required>
+									<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+									<span class="help-block" id="passwordmsg"></span>
+								</div>
+							</div>							
+							<h3>Personal Details</h3>
+							<div class="form-group">
+								<label for="name" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="name" placeholder="First and last name" pattern="[A-Z][a-z]{1,20}( |-)[A-Z]'{0,1}[A-Z]{0,1}[a-z]{1,28}( [A-Z]{1}[a-z]{1,29})?" onblur="return validateErrors('name','namemsg')" title="80 alpha characters. First character of each word must be capitalised. Allow for up to three words.">
+									<span class="help-block" id="namemsg"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="address" class="col-sm-2 control-label">Address</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="address" placeholder="120 Currie Street" pattern="[A-Za-z0-9_ -/]{1,100}" onblur="return validateErrors('address','addressmsg')" title="Maximum of 100 alpha numeric characters in upper and lower case.">
+									<span class="help-block" id="addressmsg"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="suburb" class="col-sm-2 control-label">Suburb</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="suburb" placeholder="Adelaide" pattern="[A-Z]{1}[a-z]{1,24}(( |-)[A-Z]{1}[a-z]{1,24})?" onblur="return validateErrors('suburb','suburbmsg')" title="Maximum of 50 alpha characters. First character must be capitalised.">
+									<span class="help-block" id="suburbmsg"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="city" class="col-sm-2 control-label">City</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="city" placeholder="Adelaide" pattern="[A-Z]{1}[a-z]{1,24}(( |-)[A-Z]{1}[a-z]{1,24})?" onblur="return validateErrors('city','citymsg')" title="Maximum of 50 alpha characters. First character must be capitalised.">
+									<span class="help-block" id="citymsg"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="country" class="col-sm-2 control-label">Country</label>
+								<div class="col-sm-10">
+									<select id="country" name ="country" class="form-control" onchange="return validateErrors('country', 'country-msg')">
+										<option value="empty">-- Select country --</option>
+										<option value="Australia">Australia</option>
+										<option value="New Zealand">New Zealand</option>
+									</select>
+									<span class="help-block" id="country-msg"></span>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="state" class="col-sm-2 control-label">State/ Region</label>
+								<div class="col-sm-10">
+									<select disabled id="state" name ="state" class="form-control" onchange="return validateErrors('state', 'state-msg')">
+										<option value="empty">-- Select	COUNTRY first --</option>
+									</select>
+									<span class="help-block" id="state-msg"></span>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="postcode" class="col-sm-2 control-label">Postcode</label>
+								<div class="col-sm-10">
+									<input disabled type="text" class="form-control" id="postcode" placeholder="0000" onblur="return validateErrors('postcode','postcode-msg')" >
+									<span class="help-block" id="postcode-msg"></span>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="citymail" class="col-sm-2 control-label">City Mail</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="citymail" placeholder="Mailing address city" pattern="[A-Z]{1}[a-z]{1,24}(( |-)[A-Z]{1}[a-z]{1,24})?" onblur="return validateErrors('citymail','citymailmsg')" title="Maximum of 50 alpha characters. First character must be capitalised.">
+									<span class="help-block" id="citymailmsg"></span>
+								</div>
+							</div>							
+							<div class="form-group has-feedback">
+								<label for="email" class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="email" placeholder="Email" pattern = "[A-Z0-9a-z_-]{2,20}@[A-Z0-9a-z_-]{2,50}.[A-Z0-9a-z]{2,3}" onblur="return validateErrors('email','emailmsg')" title = "Example: yourname@yourdomain.com" >
+									<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
+									<span class="help-block" id="emailmsg">sdf</span>
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="phone" class="col-sm-2 control-label">Phone</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="phone" placeholder="(00)-0000-0000" pattern="[(]\d{2}[)][-]\d{4}[-]\d{4}" onblur="return validateErrors('phone','phonemsg')" title="Must be in the format (##)-####-####">
+									<span class="glyphicon glyphicon-earphone form-control-feedback" aria-hidden="true"></span>
+									<span class="help-block" id="phonemsg"></span>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="website" class="col-sm-2 control-label">Website</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="website" placeholder="www.example.com" pattern="www.[A-Za-z0-9_-]{1,50}(.com|.net|.org)" onblur="return validateErrors('website','websitemsg')" title="Must be in the format www.example.com (.net or .org)">
+									<span class="help-block" id="websitemsg"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="age" class="col-sm-2 control-label">Age</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="age" placeholder="" pattern="\d{1,3}" onblur="return validateErrors('age','agemsg')" title="one to three numerals">
+									<span class="help-block" id="agemsg"></span>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="color" class="col-sm-10 control-label">Spam check. What color is black? (Choose a color) </label>
+								<div class="col-sm-2">
+									<input type="color" id="colorpicker" value="#ffcc00" class="form-control" onchange="return validateErrors('colorpicker','colorpickermsg')" placeholder="">
+									<span class="help-block" id="colorpickermsg"></span>
+								</div>
+							</div>								
+							<div class="form-group">
+								<div class="row">
+									<div class="col-sm-offset-2 col-sm-4">
+										<button id="continueBtn" type="button" onclick="continueForm()" class="btn btn-primary">continue <span class="glyphicon glyphicon-share-alt"></span></button>
+									</div>
+									<div class="col-sm-4">
+										<button type="reset" class="btn">Reset </span></button>
+									</div>
+								</div>
+							</div>	
+						</form>	
+						<div class="col-bg-12 col-md-12 col-sm-12">
+							<span class="help-block" id="validatorMsg"></span>	
+						</div>							
+					</div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	<!-- End container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!--  Range input type -->
+	
+	<!--  End Range input type -->
+  </body>
+</html>

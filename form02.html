@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Ellie Bootstrap Form Template - Form02</title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Style css -->
+	<link href="css/style.css" rel="stylesheet">
+	
+	<!-- DatePicker css -->
+	<link rel="stylesheet" type="text/css" href="css/datepickr.css" />
+	
+	<!-- validate javascript -->
+	<script type="text/javascript" src = "js/validate.js"></script>
+	
+	<!-- Local Storage javascript -->
+	<script type="text/javascript" src = "js/localstorage_form02.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ <body class= "font1" onload="getData(), init()">
+	<!-- container -->
+    <div class="container" style=" margin-top: 20px">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="progress">
+							<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+								50% Complete
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Form 2</h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal" action="form03.html">
+						<h3>Tip Details</h3>
+							<div class="form-group">
+								<label for="datepick" class="col-sm-2 control-label">Date of Incident</label>
+								<div class="col-sm-10">
+									<input type="date" class="form-control" id="datepick" >
+									<script type="text/javascript" 
+									src="../date/datepickr.min.js"></script>
+									<!--  checks to create an input of the datetime-local type script -->
+									<script type="text/javascript"> 
+										var i = document.createElement("input"); 
+										i.setAttribute("type", "datetime-
+										local"); 
+										if (i.type != " 
+										datetime-
+										local 
+										")  
+										{ 
+										new datepickr('datepick', {'dateFormat': 'd/m/y'}); 
+										} 
+									</script>
+									<!--  End datetime-local type script -->
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="tip" class="col-sm-2 control-label">Tip details</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="tip" rows="4"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputFile">File input</label>
+								<input type="file" id="exampleInputFile">
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
+									<input type="range" name="range" id="range" min="1" max="10" />
+									</label><input id="rvalue" placeholder="more urgent" readonly />								</div>
+							</div>							
+							<hr class="divider">
+							<h3>Communication Preferences</h3>
+							<div class="checkbox">
+								<label><input type="checkbox" value="Yes">May we contact you about this tip?</label>
+							</div>
+							<div class="radio">
+								<label><input type="radio" name="optionsRadios" id="phone" value="phone">Phone</label>
+								<label><input type="radio" name="optionsRadios" id="email" value="email">Email</label>
+							</div>	
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">continue <span class="glyphicon glyphicon-share-alt"></span></button>
+								</div>
+							</div>							
+						</form>						
+					</div>
+				</div>			
+			</div>			
+		</div>
+	</div>
+	<!-- End container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!--  Range input type script -->
+	<script type="text/javascript">
+		var range;
+		var rvalue;
+		function init(){
+			range = document.getElementById("range");
+			rvalue = document.getElementById("rvalue");
+			rvalue.placeholder = "10 is most urgent";
+			range.onchange = update;
+		}
+
+		function update(){
+		rvalue.value = range.value;
+		}
+
+	</script>
+	<!--  End Range input type -->
+	
+	<!--  DatePicker script -->
+	<script type="text/javascript" src="js/datepickr.min.js"></script>
+	<script type="text/javascript">
+		new datepickr('datepick');
+		
+		new datepickr('datepick2', {
+			'dateFormat': 'm/d/y'
+		});
+		
+		new datepickr('datepick3', {
+				'fullCurrentMonth': false,
+			'dateFormat': 'l, F j'
+		});
+			
+		new datepickr('datepick4', {
+			dateFormat: '\\l\\e jS F Y', /* need to double escape characters that you don't want formatted */
+			weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+			months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+			suffix: { 1: 'er' },
+			defaultSuffix: '' /* the suffix that is used if nothing matches the suffix object, default 'th' */
+		});
+	</script>
+	<!--  End DatePicker script -->
+  </body>
+</html>
